@@ -1,0 +1,8 @@
+<ul>
+<li><%= comment.body %></li>
+<% unless comments_by_parent[comment.id].nil? || comments_by_parent[comment.id].empty? %>
+	<% comments_by_parent[comment.id].each do |child| %>
+		<%= render :partial => "comment", :locals => {:comment => child, :comments_by_parent => comments_by_parent}  %>
+	<% end -%>
+<% end -%>
+</ul>

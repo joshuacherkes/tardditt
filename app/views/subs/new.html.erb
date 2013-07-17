@@ -1,0 +1,26 @@
+<h1>Create a New Sub(red)dit</h1>
+<form action="<%= subs_url %>" method="post">
+	<label>Name
+		<input type="text" name="sub[name]">
+	</label>
+	<br>
+
+	<input type="hidden" name="sub[mod_id]" value="<%= current_user.id %>">
+	<% 5.times do |n| %>
+	<label> Link <%= n %> URL:
+		<input type="text" name="sub[links_attributes][<%= n %>][url]">
+	</label>
+	<br>
+	<label> Link <%= n %> Name:
+		<input type="text" name="sub[links_attributes][<%= n %>][title]">
+	</label>
+	<br>
+	<% end -%>
+
+		  <input type="hidden"
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>">
+
+	<input type="submit" value="Create Sub!">
+</form>
+	

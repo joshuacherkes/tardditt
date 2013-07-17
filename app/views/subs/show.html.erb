@@ -1,0 +1,10 @@
+<h1><%= @sub.name %></h1>
+
+<h2> Links</h2>
+<%= @sub.links.each do |link| %>
+	<h3>Title</h3>
+	<h4><%= link.title %></h4><br>
+	<h3>URL</h3><br>
+	<%= link.url %><br>
+<% end -%>
+

@@ -1,0 +1,11 @@
+<h1><a href="<%= @link.url %>"><%= @link.title %></a></h1>
+
+<body><%= @link.body %></body>
+
+
+<%# comments here %>
+<% @link.comments_by_parent[nil].each do |comment| %>
+
+	<%= render :partial => "comment", :locals => {:comment => comment, :comments_by_parent => @link.comments_by_parent}  %>
+<% end -%>
+

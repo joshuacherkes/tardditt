@@ -1,0 +1,17 @@
+<%= render :partial => "comment", :locals => {:comment => @comment, :comments_by_parent => Link.find(@comment.link_id).comments_by_parent}  %>
+
+<h2>Reply to this comment</h2>
+<form action="<%= comments_url %>" method="post">
+	<textarea name="comment[body]"></textarea>
+	<input type="hidden" name="comment[parent_comment_id]" 
+	value="<%= @comment.id %>">
+	<input type="hidden" name="comment[link_id]"
+	value="<%= @comment.link_id %>">
+
+		  <input type="hidden"
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>">
+
+    <br>
+	<input type="submit">
+</form>

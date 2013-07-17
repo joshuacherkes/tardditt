@@ -1,0 +1,33 @@
+<h1>Submit a Link</h1>
+
+<form action="<%= links_url %>" method="post">
+	<label>Name
+		<input type="text" name="link[title]">
+	</label>
+	<br>
+	<label>URL
+		<input type="text" name="link[url]">
+	</label>
+	<br>
+	<label>Body	<br>
+		<textarea name="link[body]"></textarea>
+	</label>
+	<br>
+	<h2>Select Subs</h2>
+	<% Sub.all.each do |sub| %>
+	<label><%= sub.name %>
+	<input type="checkbox" name="link[sub_ids][]" value="<%= sub.id %>">
+	</label>
+	<br>
+	<% end -%>
+
+		  <input type="hidden"
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>">
+
+
+	<input type="submit">
+</form>
+
+
+

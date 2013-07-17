@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tarddit</title>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+Flash: <%= flash[:errors] %>
+
+<%= yield %>
+
+
+
+<% if current_user %>
+<form action="<%= session_url %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="logout">
+  </form>
+<% end -%>
+<%= params %>
+<%= session %>
+
+</body>
+</html>
