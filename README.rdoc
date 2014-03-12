@@ -1,4 +1,4 @@
-== Welcome to Rails
+== Reddit Clone
 
 This is a Reddit Clone written in rails. 
 
